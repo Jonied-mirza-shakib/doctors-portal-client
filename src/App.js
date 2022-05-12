@@ -7,6 +7,7 @@ import Home from './Pages/Home/Home';
 import Rivews from './Pages/Rivews/Rivews';
 import Login from './Pages/Login/Login'
 import Navbar from './Pages/Shared/Navbar';
+import Footer from './Pages/Footer/Footer';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/contactUs' element={<ContactUs></ContactUs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

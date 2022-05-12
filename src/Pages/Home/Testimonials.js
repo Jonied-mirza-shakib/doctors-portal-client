@@ -42,7 +42,7 @@ const Testimonials = () => {
             </div>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                 {
-                    testimonial.map(testimonials => <Testimonial key={testimonials._id} testimonials={testimonials}></Testimonial>)
+                    testimonial.map(Istestimonials => <Testimonial key={Istestimonials._id} Istestimonials={Istestimonials}></Testimonial>)
                 }
             </div>
         </div>
