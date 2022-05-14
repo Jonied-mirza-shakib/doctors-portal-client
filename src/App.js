@@ -8,11 +8,12 @@ import Rivews from './Pages/Rivews/Rivews';
 import Login from './Pages/Login/Login'
 import Navbar from './Pages/Shared/Navbar';
 import Footer from './Pages/Footer/Footer';
+import SignUp from './Pages/Login/SignUp';
 
 
 function App() {
   return (
-    <div>
+    <div className='px-12'>
       <Navbar></Navbar>
       <Routes>
         <Route path='/home' element={<Home></Home>}></Route>
@@ -21,6 +22,7 @@ function App() {
         <Route path='/reviews' element={<Rivews></Rivews>}></Route>
         <Route path='/contactUs' element={<ContactUs></ContactUs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/signUp' element={<SignUp></SignUp>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
