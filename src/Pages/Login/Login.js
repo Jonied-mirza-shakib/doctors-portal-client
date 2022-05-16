@@ -1,29 +1,38 @@
 import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [signInWithGoogle, GoogleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+
     let errorMessage;
     if (googleLoading || loading) {
-        return <button type="button" class="text-indigo-500 font-bold flex justify-center items-center mx-auto" disabled>
+        return <button type="button" className="text-indigo-500 font-bold flex justify-center items-center mx-auto" disabled>
             Loading...
         </button>
     }
     if (googleError || error) {
         errorMessage = <p className='text-red-500'>{googleError?.message || error?.message}</p>
     }
+    if (user || GoogleUser) {
+        navigate(from, { replace: true });
+    }
     const onSubmit = data => {
         console.log(data)
-        signInWithEmailAndPassword(data.email, data.password)
+        signInWithEmailAndPassword(data?.email, data?.password)
     };
 
     return (
@@ -34,7 +43,7 @@ const Login = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text font-bold">Email</span>
                             </label>
                             <input
                                 type="email" placeholder="Your Email" className="input input-bordered w-full max-w-xs"
@@ -55,7 +64,7 @@ const Login = () => {
                         </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text font-bold">Password</span>
                             </label>
                             <input
                                 type="password" placeholder="Your Password" className="input input-bordered w-full max-w-xs"
@@ -77,7 +86,7 @@ const Login = () => {
                         {errorMessage}
                         <input className='btn w-full max-w-xs text-white' type="submit" value='Login' />
                     </form>
-                    <p><small>New To Doctors Portal <Link to='/signUp' className='text-primary'>Creat An New Account</Link> </small></p>
+                    <p><small>New To Doctors Portal? <Link to='/signUp' className='text-primary'>Creat An New Account</Link> </small></p>
                     <div className="divider">OR</div>
                     <div className="card-actions justify-end">
                         <button

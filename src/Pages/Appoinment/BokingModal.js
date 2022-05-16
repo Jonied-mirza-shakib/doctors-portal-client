@@ -1,13 +1,45 @@
 import { format } from 'date-fns';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
-const BokingModal = ({ date, treatment, setTreatment }) => {
+const BokingModal = ({ date, treatment, setTreatment, refetch }) => {
     const { _id, name, slots } = treatment;
+    const [user, loading, error] = useAuthState(auth);
+    const formatDate = format(date, 'pp')
+
     const handleBooking = event => {
         event.preventDefault();
-        const a = event.target.slots?.value;
-        console.log(_id, name, a);
-        setTreatment(null)
+        const slot = event.target.slots?.value;
+        console.log(_id, name, slot);
+        const booking = {
+            treatmentId: _id,
+            treatment: name,
+            date: formatDate,
+            slot,
+            patient: user.email,
+            patientName: user.displayName,
+            phone: event.target.phone.value,
+        }
+
+        fetch('http://localhost:5000/booking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(booking),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    toast(`Your Appointment is set ${formatDate} at ${slot}`)
+                } else {
+                    toast.error(`Already have an appointment ${data.booking?.date} at ${data.booking?.slot}`)
+                }
+                refetch()
+                setTreatment(null)
+            })
     }
     return (
         <div>
@@ -23,8 +55,8 @@ const BokingModal = ({ date, treatment, setTreatment }) => {
                                 slots.map(slot => <option value={slot}>{slot}</option>)
                             }
                         </select>
-                        <input type="text" name='name' placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
-                        <input type="text" name='email' placeholder="Your Email" className="input input-bordered w-full max-w-xs" />
+                        <input type="text" name='name' value={user?.displayName} disabled className="input input-bordered w-full max-w-xs" />
+                        <input type="text" name='email' value={user?.email} disabled className="input input-bordered w-full max-w-xs" />
                         <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
                         <input type="submit" value='submit' className="btn bg-slate-700 w-full max-w-xs" />
                     </form>
