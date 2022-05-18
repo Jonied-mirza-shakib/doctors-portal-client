@@ -11,7 +11,7 @@ const Navbar = () => {
         localStorage.removeItem('accessToken');
     };
     const menuItem = <>
-        <li><Link to='/home'>Home</Link></li>
+        <li><Link to='/'>Home</Link></li>
         <li><Link to='/appointment'>Appointment</Link></li>
         <li><Link to='/about'>About</Link></li>
         <li><Link to='/reviews'>Reviews</Link></li>

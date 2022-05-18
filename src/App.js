@@ -24,7 +24,7 @@ function App() {
     <div className='px-12'>
       <Navbar></Navbar>
       <Routes>
-        <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/' element={<Home></Home>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/appointment' element={
           <RequireAuth>
