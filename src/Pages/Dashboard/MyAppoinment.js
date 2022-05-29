@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 const MyAppoinment = () => {
     const [appointment, setAppointment] = useState([]);
@@ -15,7 +16,7 @@ const MyAppoinment = () => {
             fetch(`https://cryptic-mesa-43832.herokuapp.com/booking?patient=${user.email}`, {
                 method: 'GET',
                 headers: {
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
                 .then(res => {
@@ -46,6 +47,7 @@ const MyAppoinment = () => {
                             <th>Date</th>
                             <th>Time</th>
                             <th>Treatment</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +59,8 @@ const MyAppoinment = () => {
                                     <td>{appointments.date}</td>
                                     <td>{appointments.slot}</td>
                                     <td>{appointments.treatment}</td>
+                                    <td>{(appointments.price && !appointments.paid) && <Link to={`/dashboard/payment/${appointments._id}`}><button className='btn btn-xs-success' type='button'>Pay</button></Link>}</td>
+                                    <td>{(appointments.price && appointments.paid) && <p className='text-success' type='button'>Paid</p>}</td>
                                 </tr>
                             )
                         }

@@ -7,7 +7,7 @@ const AllUsers = () => {
         fetch('https://cryptic-mesa-43832.herokuapp.com/user', {
             method: 'GET',
             headers: {
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
         })
             .then(res => res.json())
@@ -19,7 +19,7 @@ const AllUsers = () => {
         fetch(`https://cryptic-mesa-43832.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
         })
             .then(res => {
