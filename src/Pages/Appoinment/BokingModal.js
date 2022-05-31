@@ -24,7 +24,7 @@ const BokingModal = ({ date, treatment, setTreatment, refetch }) => {
             phone: event.target.phone.value,
         }
 
-        fetch('https://cryptic-mesa-43832.herokuapp.com', {
+        fetch('https://cryptic-mesa-43832.herokuapp.com/booking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
