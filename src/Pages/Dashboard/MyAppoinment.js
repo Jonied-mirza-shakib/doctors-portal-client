@@ -60,7 +60,10 @@ const MyAppoinment = () => {
                                     <td>{appointments.slot}</td>
                                     <td>{appointments.treatment}</td>
                                     <td>{(appointments.price && !appointments.paid) && <Link to={`/dashboard/payment/${appointments._id}`}><button className='btn btn-xs-success' type='button'>Pay</button></Link>}</td>
-                                    <td>{(appointments.price && appointments.paid) && <p className='text-success' type='button'>Paid</p>}</td>
+                                    <td>{(appointments.price && appointments.paid) && <div>
+                                        <p className='text-success' type='button'>Paid</p>
+                                        <p className='text-success' type='button'>Transaction Id: {appointments.transectionId}</p>
+                                    </div>}</td>
                                 </tr>
                             )
                         }
