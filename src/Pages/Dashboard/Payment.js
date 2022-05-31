@@ -9,7 +9,7 @@ const stripePromise = loadStripe('pk_test_51L4fLCD15eCVhrzNkkD1sfSX6fDlCTxWEEHGv
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `https://cryptic-mesa-43832.herokuapp.com/${id}`
+    const url = `https://cryptic-mesa-43832.herokuapp.com/booking/${id}`
     const { data: appointment, isLoading, refetch } = useQuery(['booking', id], () =>
         fetch(url, {
             method: 'GET',
