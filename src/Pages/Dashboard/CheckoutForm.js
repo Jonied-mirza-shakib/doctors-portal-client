@@ -73,7 +73,7 @@ const CheckoutForm = ({ appointment }) => {
                 appointment: _id,
                 transectionId: paymentIntent.id
             }
-            fetch(`https://cryptic-mesa-43832.herokuapp.com/${_id}`, {
+            fetch(`https://cryptic-mesa-43832.herokuapp.com/booking/${_id}`, {
                 method: "PATCH",
                 headers: {
                     "authorization": `Bearer ${localStorage.getItem('accessToken')}`,
