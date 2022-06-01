@@ -11,22 +11,20 @@ const ManagDoctors = () => {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => {
-        console.log(res)
         return res.json()
     }));
-    console.log()
 
     if (isLoading) {
-        return <button type="button" class="text-xl font-bold" disabled>
+        return <button type="button" className="text-xl font-bold" disabled>
             Loading....
         </button>
     }
 
     return (
         <div>
-            <h2 className="text-2xl">Manage Doctors{doctors?.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <h2 className="text-2xl text-accent text-center my-10">Manage Doctors</h2>
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>

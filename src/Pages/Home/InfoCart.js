@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InfoCart = ({ img, cartTitle, bgClass, className }) => {
+const InfoCart = ({ img, cartTitle, bgclassName, className }) => {
     return (
         <div className={`card lg:card-side bg-base-100 shadow-xl ${className}`}>
             <figure className='pl-5'>

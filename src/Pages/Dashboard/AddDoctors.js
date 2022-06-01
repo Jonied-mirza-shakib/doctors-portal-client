@@ -12,7 +12,7 @@ const AddDoctors = () => {
     )
 
     if (isLoading) {
-        return <button type="button" class="text-xl font-bold" disabled>
+        return <button type="button" className="text-xl font-bold" disabled>
             Loading....
         </button>
     }
@@ -106,7 +106,7 @@ const AddDoctors = () => {
                     <label className="label">
                         <span className="label-text font-bold">Specialty</span>
                     </label>
-                    <select {...register("Specialty")} input-bordere class="select w-full max-w-xs">
+                    <select {...register("Specialty")} input-bordere className="select w-full max-w-xs">
                         {
                             services.map(service =>
                                 <option

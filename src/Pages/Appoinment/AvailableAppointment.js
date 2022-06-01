@@ -14,7 +14,7 @@ const AvailableAppointment = ({ date }) => {
     )
 
     if (isLoading) {
-        return <button type="button" class="text-xl font-bold" disabled>
+        return <button type="button" className="text-xl font-bold" disabled>
             Loading....
         </button>
     }

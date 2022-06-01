@@ -39,15 +39,15 @@ const AllUsers = () => {
 
 
     if (isLoading) {
-        return <button type="button" class="text-xl font-bold" disabled>
+        return <button type="button" className="text-xl font-bold" disabled>
             Loading....
         </button>
     }
     return (
         <div>
             <h1 className='text-center text-2xl text-accent'>All Users</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>

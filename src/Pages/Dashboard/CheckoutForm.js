@@ -84,10 +84,8 @@ const CheckoutForm = ({ appointment }) => {
                 .then(res => res.json())
                 .then(data => {
                     setProcessing(false)
-                    console.log(data)
                 })
         }
-        console.log(paymentIntent)
     }
     return (
         <>

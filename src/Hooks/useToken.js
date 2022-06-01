@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const useToken = user => {
     const [token, setToken] = useState('');
     useEffect(() => {
-        const email = user?.user.email;
+        const email = user?.user?.email;
         const currentUser = { email: email };
         if (email) {
             fetch(`https://cryptic-mesa-43832.herokuapp.com/user/${email}`, {
@@ -18,7 +18,6 @@ const useToken = user => {
                     const accessToken = data.token;
                     localStorage.setItem('accessToken', accessToken)
                     setToken(accessToken)
-                    console.log('Success:', data);
                 })
         }
     }, [user])
