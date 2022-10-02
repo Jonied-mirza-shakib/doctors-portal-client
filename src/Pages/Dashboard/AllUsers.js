@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const AllUsers = () => {
     const { data: user, isLoading, refetch } = useQuery(['users'], () =>
-        fetch('https://cryptic-mesa-43832.herokuapp.com/user', {
+        fetch('http://localhost:5000/user', {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -16,7 +16,7 @@ const AllUsers = () => {
 
     const makeAdmin = email => {
         console.log(email);
-        fetch(`https://cryptic-mesa-43832.herokuapp.com/user/admin/${email}`, {
+        fetch(`http://localhost:5000/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

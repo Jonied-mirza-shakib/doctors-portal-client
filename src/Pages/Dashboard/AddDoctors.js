@@ -7,7 +7,7 @@ const AddDoctors = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const { data: services, isLoading } = useQuery(['services'], () =>
-        fetch('https://cryptic-mesa-43832.herokuapp.com/service')
+        fetch('http://localhost:5000/service')
             .then(res => res.json())
     )
 
@@ -41,7 +41,7 @@ const AddDoctors = () => {
                         specialty: data.Specialty,
                         img: img,
                     }
-                    fetch('https://cryptic-mesa-43832.herokuapp.com/doctors', {
+                    fetch('http://localhost:5000/doctors', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
