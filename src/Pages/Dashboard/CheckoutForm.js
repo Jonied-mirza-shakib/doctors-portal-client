@@ -13,7 +13,7 @@ const CheckoutForm = ({ appointment }) => {
     const { _id, price, patient, patientName } = appointment;
 
     useEffect(() => {
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('accessToken')}`,
@@ -73,7 +73,7 @@ const CheckoutForm = ({ appointment }) => {
                 appointment: _id,
                 transectionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/booking/${_id}`, {
+            fetch(`https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/booking/${_id}`, {
                 method: "PATCH",
                 headers: {
                     "authorization": `Bearer ${localStorage.getItem('accessToken')}`,

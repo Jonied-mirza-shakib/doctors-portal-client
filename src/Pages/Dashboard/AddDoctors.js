@@ -7,7 +7,7 @@ const AddDoctors = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const { data: services, isLoading } = useQuery(['services'], () =>
-        fetch('http://localhost:5000/service')
+        fetch('https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/service')
             .then(res => res.json())
     )
 
@@ -41,7 +41,7 @@ const AddDoctors = () => {
                         specialty: data.Specialty,
                         img: img,
                     }
-                    fetch('http://localhost:5000/doctors', {
+                    fetch('https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/doctors', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

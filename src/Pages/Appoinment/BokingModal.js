@@ -25,7 +25,7 @@ const BokingModal = ({ date, treatment, setTreatment, refetch }) => {
             phone: event.target.phone.value,
         }
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
