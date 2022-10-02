@@ -1,0 +1,15 @@
+.booking-modal-form{
+    width: 100%;
+   padding: 15px 34px;
+   border: 1px solid black;
+   border-radius: 10px;
+   background-color: black;
+   color: white;
+}
+.booking-modal-btn{
+    width: 100%;
+   padding: 15px 34px;
+   border: 1px solid black;
+   border-radius: 10px;
+   color: white;
+}

@@ -1,0 +1,15 @@
+.review-page{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.review-container{
+    width: 90%;
+    margin: auto;
+}
+.review-entry-title{
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 5px;
+    text-align: center;
+}

@@ -1,9 +1,12 @@
 import React from 'react';
+import './Rivews.css'
 
 const Rivews = () => {
     return (
-        <div>
-            <h1>this is rivews</h1>
+        <div className='review-page'>
+           <div className='review-container'>
+            <h1 className='review-entry-title'>ALL REVIEW</h1>
+           </div>
         </div>
     );
 };

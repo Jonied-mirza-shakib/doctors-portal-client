@@ -3,6 +3,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
+import './BokingModal.css'
 
 const BokingModal = ({ date, treatment, setTreatment, refetch }) => {
     const { _id, name, slots, price } = treatment;
@@ -50,16 +51,16 @@ const BokingModal = ({ date, treatment, setTreatment, refetch }) => {
                     <label for="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-lg text-accent text-center mb-10">{name}</h3>
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 justify-items-center'>
-                        <input disabled type="text" value={format(date, 'PP')} className="input input-bordered w-full max-w-xs" />
-                        <select name="slots" className="select select-bordered w-full max-w-xs">
+                        <input disabled type="text" value={format(date, 'PP')} className='booking-modal-form'/>
+                        <select name="slots" className='booking-modal-form'>
                             {
                                 slots.map(slot => <option value={slot}>{slot}</option>)
                             }
                         </select>
-                        <input type="text" name='name' value={user?.displayName} disabled className="input input-bordered w-full max-w-xs" />
-                        <input type="text" name='email' value={user?.email} disabled className="input input-bordered w-full max-w-xs" />
-                        <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
-                        <input type="submit" value='submit' className="btn bg-slate-700 w-full max-w-xs" />
+                        <input type="text" name='name' value={user?.displayName} disabled className='booking-modal-form' />
+                        <input type="text" name='email' value={user?.email} disabled className='booking-modal-form' />
+                        <input type="text" name='phone' placeholder="Phone Number" className='booking-modal-form' />
+                        <input type="submit" value='submit' className="btn booking-modal-btn" />
                     </form>
                 </div>
             </div>
