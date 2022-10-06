@@ -9,7 +9,7 @@ const AvailableAppointment = ({ date }) => {
     const formattedDate = format(date, 'pp')
 
     const { data: service, isLoading, refetch } = useQuery(['available', formattedDate], () =>
-        fetch(`https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/available?date=${formattedDate}`)
+        fetch(`https://doctors-portal-server-a4jz.onrender.com/available?date=${formattedDate}`)
             .then(res => res.json())
     )
 

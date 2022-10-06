@@ -6,7 +6,7 @@ const useAdmin = user => {
     useEffect(() => {
         const email = user?.email;
         if (email) {
-            fetch(`https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/admin/${email}`, {
+            fetch(`https://doctors-portal-server-a4jz.onrender.com/admin/${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',

@@ -6,7 +6,7 @@ import DeleteConfirmModal from '../../Pages/Dashboard/DeleteConfirmModal'
 const ManagDoctors = () => {
     const [deletingDoctor, setDeletingDoctor] = useState(null);
 
-    const { data: doctors, isLoading, refetch } = useQuery(['doctor'], () => fetch('https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/doctors', {
+    const { data: doctors, isLoading, refetch } = useQuery(['doctor'], () => fetch('https://doctors-portal-server-a4jz.onrender.com/doctors', {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }

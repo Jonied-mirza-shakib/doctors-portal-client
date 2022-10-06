@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const AllUsers = () => {
     const { data: user, isLoading, refetch } = useQuery(['users'], () =>
-        fetch('https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/user', {
+        fetch('https://doctors-portal-server-a4jz.onrender.com/user', {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -16,7 +16,7 @@ const AllUsers = () => {
 
     const makeAdmin = email => {
         console.log(email);
-        fetch(`https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/user/admin/${email}`, {
+        fetch(`https://doctors-portal-server-a4jz.onrender.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

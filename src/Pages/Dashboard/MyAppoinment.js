@@ -13,7 +13,7 @@ const MyAppoinment = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/booking?patient=${user.email}`, {
+            fetch(`https://doctors-portal-server-a4jz.onrender.com/booking?patient=${user.email}`, {
                 method: 'GET',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`

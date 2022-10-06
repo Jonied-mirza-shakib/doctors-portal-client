@@ -6,7 +6,7 @@ const useToken = user => {
         const email = user?.user?.email;
         const currentUser = { email: email };
         if (email) {
-            fetch(`https://doctors-portal-server-git-main-jonied-mirza-shakib.vercel.app/user/${email}`, {
+            fetch(`https://doctors-portal-server-a4jz.onrender.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
