@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "doctors-portal-c4592"
-  }
+    "default": "doctors-portal-c4592",
+    "my staging projects": "doctors-portal-c4592"
+  },
+  "targets": {},
+  "etags": {}
 }
