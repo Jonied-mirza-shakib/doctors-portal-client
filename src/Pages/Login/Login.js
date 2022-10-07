@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../Hooks/useToken';
+import './Login.css'
 
 
 const Login = () => {
@@ -49,9 +50,7 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text font-bold">Email</span>
                             </label>
-                            <input
-                                type="email" placeholder="Your Email" className="input input-bordered w-full max-w-xs"
-                                {...register("email", {
+                            <input type="email" placeholder="Your Email" {...register("email", {
                                     required: {
                                         value: true,
                                         message: 'Email is Required'
@@ -71,8 +70,7 @@ const Login = () => {
                                 <span className="label-text font-bold">Password</span>
                             </label>
                             <input
-                                type="password" placeholder="Your Password" className="input input-bordered w-full max-w-xs"
-                                {...register("password", {
+                                type="password" placeholder="Your Password" {...register("password", {
                                     required: {
                                         value: true,
                                         message: 'Password is Required'
@@ -88,7 +86,7 @@ const Login = () => {
                             </label>
                         </div>
                         {errorMessage}
-                        <input className='btn w-full max-w-xs text-white' type="submit" value='Login' />
+                        <input type="submit" value='Login' />
                     </form>
                     <p><small>New To Doctors Portal? <Link to='/signUp' className='text-primary'>Creat An New Account</Link> </small></p>
                     <div className="divider">OR</div>

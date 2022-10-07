@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import useToken from '../../Hooks/useToken';
+import './SignUp.css'
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -48,8 +49,7 @@ const SignUp = () => {
                                 <span className="label-text font-bold">Name</span>
                             </label>
                             <input
-                                type="text" placeholder="Your Name" className="input input-bordered w-full max-w-xs"
-                                {...register("name", {
+                                type="text" placeholder="Your Name" {...register("name", {
                                     required: {
                                         value: true,
                                         message: 'Name is Required'
@@ -64,8 +64,7 @@ const SignUp = () => {
                                 <span className="label-text font-bold">Email</span>
                             </label>
                             <input
-                                type="email" placeholder="Your Email" className="input input-bordered w-full max-w-xs"
-                                {...register("email", {
+                                type="email" placeholder="Your Email" {...register("email", {
                                     required: {
                                         value: true,
                                         message: 'Email is Required'
@@ -85,8 +84,7 @@ const SignUp = () => {
                                 <span className="label-text font-bold">Password</span>
                             </label>
                             <input
-                                type="password" placeholder="Your Password" className="input input-bordered w-full max-w-xs"
-                                {...register("password", {
+                                type="password" placeholder="Your Password" {...register("password", {
                                     required: {
                                         value: true,
                                         message: 'Password is Required'
@@ -102,7 +100,7 @@ const SignUp = () => {
                             </label>
                         </div>
                         {errorMessage}
-                        <input className='btn w-full max-w-xs text-white' type="submit" value='Signup' />
+                        <input type="submit" value='Signup' />
                     </form>
                     <p><small>Al ready have an account? <Link to='/login' className='text-primary'>Please Login</Link> </small></p>
                     <div className="divider">OR</div>
