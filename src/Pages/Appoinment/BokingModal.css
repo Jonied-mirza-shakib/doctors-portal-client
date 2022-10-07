@@ -1,10 +1,12 @@
 .booking-modal-form{
     width: 100%;
-   padding: 15px 34px;
-   border: 1px solid black;
-   border-radius: 10px;
-   background-color: black;
-   color: white;
+    border: 1px solid black;
+    outline: none;
+    padding: 10px 20px;
+    color: white !important;
+    background-color: gray;
+    font-size: 15px;
+    font-family: sans-serif;
 }
 .booking-modal-btn{
     width: 100%;
