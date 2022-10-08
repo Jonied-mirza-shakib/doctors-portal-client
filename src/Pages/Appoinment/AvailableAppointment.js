@@ -19,6 +19,8 @@ const AvailableAppointment = ({ date }) => {
         </button>
     }
 
+
+
     return (
         <div>
             <h4 className='text-xl text-secondary text-center my-12'>Available Appointments on {format(date, 'PP')}</h4>
