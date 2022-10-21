@@ -25,7 +25,7 @@ const BokingModal = ({ date, treatment, setTreatment, refetch }) => {
             phone: event.target.phone.value,
         }
 
-        fetch('https://doctors-portal-server-a4jz.onrender.com/booking', {
+        fetch('https://doctors-portal-server-production.up.railway.app/booking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

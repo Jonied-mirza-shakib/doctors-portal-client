@@ -7,7 +7,7 @@ const AddDoctors = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const { data: services, isLoading } = useQuery(['services'], () =>
-        fetch('https://doctors-portal-server-a4jz.onrender.com/service')
+        fetch('https://doctors-portal-server-production.up.railway.app/service')
             .then(res => res.json())
     )
 
@@ -41,7 +41,7 @@ const AddDoctors = () => {
                         specialty: data.Specialty,
                         img: img,
                     }
-                    fetch('https://doctors-portal-server-a4jz.onrender.com/doctors', {
+                    fetch('https://doctors-portal-server-production.up.railway.app/doctors', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

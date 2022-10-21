@@ -13,7 +13,7 @@ const CheckoutForm = ({ appointment }) => {
     const { _id, price, patient, patientName } = appointment;
 
     useEffect(() => {
-        fetch("https://doctors-portal-server-a4jz.onrender.com/create-payment-intent", {
+        fetch("https://doctors-portal-server-production.up.railway.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('accessToken')}`,
@@ -73,7 +73,7 @@ const CheckoutForm = ({ appointment }) => {
                 appointment: _id,
                 transectionId: paymentIntent.id
             }
-            fetch(`https://doctors-portal-server-a4jz.onrender.com/booking/${_id}`, {
+            fetch(`https://doctors-portal-server-production.up.railway.app/booking/${_id}`, {
                 method: "PATCH",
                 headers: {
                     "authorization": `Bearer ${localStorage.getItem('accessToken')}`,
